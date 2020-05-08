@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     lmodern \
     inkscape
 
-RUN wget -c "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.4.0.0-alpha6d/pandoc-crossref-Linux-2.9.2.1.tar.xz" -O | tar -xz
-
 RUN mkdir /data
 RUN mkdir /pandoc-bin
 COPY ./bin /pandoc-bin
