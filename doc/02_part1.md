@@ -1,19 +1,28 @@
-# Grundlagen, Ziele und Architekturen 
-## Aufgabe 1.1
-> Eine alternative Definition einse verteilten Systems ist die einer Ansammlung unabhängiger Computer, die die Sicht eines einzigen Systems bieten. Es wird also vor den Benutzern vollständig verborgen, dass es mehrere Computer gibt. geben Sie ein Beispiel dafür, wann sich diese Sicht als sehr nützlich erweist.
+# First Paragraph 
+## A sub paragraph
+Bacon ipsum dolor amet cupim bresaola corned beef leberkas pork belly pastrami. Meatball ribeye turducken pork chop bresaola, t-bone sirloin turkey ham flank. Leberkas meatball ribeye pancetta beef ham spare ribs. Flank capicola brisket hamburger filet mignon beef doner frankfurter pork pig ham.
 
 
+![an png](./img.png)
 
-## Aufgabe 1.2
-> Welche Rolle spielt Middleware in einem verteilten System?
 
-## Aufgabe 1.4
+## Another sub paragraph
+Ham hock tongue bresaola bacon. Kevin turkey landjaeger sausage corned beef tail short ribs alcatra doner meatloaf pork loin. Pork loin porchetta alcatra, turducken leberkas beef kielbasa chicken strip steak biltong picanha pancetta sirloin pork belly pastrami.
+
+## Sub paragraph with list and code
 Verteilte Transparenz ist wenn sich ein System auf verschiedenen Maschinen befindet, dies für den User allerdings _Transparent_ also nicht ersichtlich ist.
 
-- örtliche Transparenz, wenn dass System geografisch verteilt ist.
-- Zugriff: Mehrere Benutzer gleichzeitig
-- Migration: Verschieben eines Systems
-- Replikation:
-- Nebenläufigkeit
-- Fehler
+- Leberkas 
+- pork flank
+- short loin
+- meatball
+- capicola
+
+```kotlin
+fun pancetta() {
+  if (pork) {
+    return "spare-ribs"  
+  }
+}
+```
 

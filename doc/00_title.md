@@ -1,8 +1,7 @@
 ---
 title: "A fancy title"
-author: Daniel Sterchi
-date: 08.05.2020
-output: pdf_document
+author: Hans Wurst
+date: 02.02.2020
 figureTitle: Abbildung #
 tableTitle: Tabelle #
 tableTemplate: |
@@ -12,7 +11,7 @@ header-includes:
     - \usepackage{xcolor}
     - \usepackage{fancyhdr}
     - \pagestyle{fancy}
-    - \fancyhead[L]{D. Sterchi}
-    - \fancyhead[C]{BSc INF 2016.BE1}
-    - \fancyhead[R]{FS20}
+    - \fancyhead[L]{Hans Wurst}
+    - \fancyhead[C]{A cool thing}
+    - \fancyhead[R]{some other thing}
 ---
