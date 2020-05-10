@@ -1,5 +1,5 @@
 \pagenumbering{gobble}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \listoffigures
