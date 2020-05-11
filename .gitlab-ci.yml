@@ -7,6 +7,9 @@ stages:
 
 docker-test:
   stage: test
+  artifacts:
+    paths:
+      - /data/convert-test-document.pdf
   script:
     - docker pull novarx/pandoc
     - chmod 777 ./build-run.sh
@@ -20,5 +23,5 @@ docker-deploy:
     - docker login -u novarx -p $DOCKERHUB_TOKEN
   script:
     - docker pull novarx/pandoc
-    - build . --cache-from novarx/pandoc -t novarx/pandoc
+    - docker build . --cache-from novarx/pandoc -t novarx/pandoc
     - docker push
