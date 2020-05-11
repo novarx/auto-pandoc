@@ -5,7 +5,7 @@ fi
 echo "current directory is: $directory"
 
 docker build . -t novarx/pandoc || exit 1
-docker run --rm -it \
+docker run --rm \
  -v "$directory:/data" \
  novarx/pandoc \
     ./*.md -o dokument.pdf \

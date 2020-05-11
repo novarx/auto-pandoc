@@ -7,4 +7,5 @@ stages:
 docker-build:
   stage: build
   script:
-    - docker build . -t novarx/pandoc
+    - chown 777 ./build-run.sh
+    - ./build-run.sh
