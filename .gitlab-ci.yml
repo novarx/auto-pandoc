@@ -6,6 +6,10 @@ stages:
   - deploy
 
 before_script:
+  - pwd
+  - ls -l
+  - ls -l ./doc
+  - ls -l /builds/novarx/pandoc/doc
   - chmod 777 ./build-run.sh
   - docker pull novarx/pandoc
 docker-test:
@@ -14,7 +18,7 @@ docker-test:
     - master
   artifacts:
     paths:
-    - ./doc/convert-test-document.pdf
+      - ./doc/convert-test-document.pdf
   script:
     - ./build-run.sh
 
@@ -26,8 +30,8 @@ docker-deploy:
     paths:
       - ./doc/convert-test-document.pdf
   script:
-    - ls -l
-    - pwd
     - docker login -u novarx -p $DOCKERHUB_TOKEN
     - ./build-run.sh
+    - ls -l ./doc
+    - ls -l /builds/novarx/pandoc/doc
     - docker push novarx/pandoc
