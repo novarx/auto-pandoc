@@ -5,5 +5,4 @@ for var in "$@"; do
 done
 printf "pandoc_args\n"
 echo "pandoc $pandoc_arg"
-bash -c "pandoc $pandoc_arg"
-bash
+eval "pandoc $pandoc_arg"
