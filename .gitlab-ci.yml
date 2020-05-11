@@ -7,5 +7,5 @@ stages:
 docker-build:
   stage: build
   script:
-    - chown 777 ./build-run.sh
+    - chmod 777 ./build-run.sh
     - ./build-run.sh
