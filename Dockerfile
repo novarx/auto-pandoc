@@ -23,11 +23,16 @@ RUN apt-get install -y --no-install-recommends python-setuptools
 # Filters
 RUN pip install pandocfilters
 RUN pip install pandoc-plantuml-filter
-RUN echo "\nexport PLANTUML_BIN=\"java -jar /usr/share/plantuml/plantuml.jar\"\n" >> ~/.bashrc
 
-#RUN mkdir /pandoc-pandoc-bin
-#COPY /pandoc-bin /pandoc-bin
+#RUN mkdir ./plantuml-images
+RUN mkdir /pandoc-bin
+COPY /pandoc-bin /pandoc-bin
+ENV PLANTUML_BIN="java -jar /pandoc-bin/plantuml.jar"
+#RUN echo '\nexport PLANTUML_BIN="java -jar /pandoc-bin/plantuml.jar"\n' >> /etc/profile
+#RUN cp /pandoc-bin/pandoc-plantuml-filter.py /usr/local/bin/pandoc-plantuml
+RUN cp /pandoc-bin/pandoc-svg.py /usr/local/bin/pandoc-svg
+#RUN cp /pandoc-bin/plantuml.jar /usr/local/bin/plantuml.jar
 
 RUN mkdir /data
 WORKDIR /data
-CMD ["bash"]
+ENTRYPOINT ["./start.sh"]

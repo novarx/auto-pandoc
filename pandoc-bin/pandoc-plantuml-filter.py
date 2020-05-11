@@ -25,7 +25,6 @@ def printToFile(*vals):
 
 
 PLANTUML_BIN = os.environ.get('PLANTUML_BIN', 'plantuml')
-printToFile(PLANTUML_BIN.split())
 
 
 def rel_mkdir_symlink(src, dest):
@@ -67,7 +66,7 @@ def plantuml(key, value, format_, _):
                     sleep(0.2)
 
                 printToFile("src", src)
-                # printToFile(PLANTUML_BIN.split() + ["-t" + filetype, src])
+                printToFile(PLANTUML_BIN.split())
                 subprocess.check_call(PLANTUML_BIN.split() +
                                       ["-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')

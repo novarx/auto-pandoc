@@ -4,4 +4,4 @@ pandoc ./*.md -o dokument.pdf \
 	-V papersize=a4paper \
 	--latex-engine=xelatex \
 	--filter=pandoc-plantuml \
-	--filter=./pandoc-bin/pandoc-svg.py
+	--filter=pandoc-svg
