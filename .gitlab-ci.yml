@@ -16,7 +16,7 @@ docker-test:
     - ./build-run.sh
 
 docker-deploy:
-  stage: test
+  stage: deploy
   only:
     - master
   before_script:
