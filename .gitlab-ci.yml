@@ -26,6 +26,8 @@ docker-deploy:
     paths:
       - ./doc/convert-test-document.pdf
   script:
+    - ls -l
+    - pwd
     - docker login -u novarx -p $DOCKERHUB_TOKEN
     - ./build-run.sh
     - docker push novarx/pandoc
