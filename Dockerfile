@@ -13,19 +13,21 @@ RUN apt-get install -y --no-install-recommends texlive-bibtex-extra
 RUN apt-get install -y --no-install-recommends fontconfig
 RUN apt-get install -y --no-install-recommends lmodern
 RUN apt-get install -y --no-install-recommends inkscape
+RUN apt-get install -y --no-install-recommends plantuml
 
 RUN apt-get install -y --no-install-recommends npm
 
 RUN apt-get install -y --no-install-recommends python-pip
 RUN apt-get install -y --no-install-recommends python-setuptools
 
-RUN npm install -g pandoc-plantuml
+# Filters
+RUN pip install pandocfilters
+RUN pip install pandoc-plantuml-filter
+RUN echo "\nexport PLANTUML_BIN=\"java -jar /usr/share/plantuml/plantuml.jar\"\n" >> ~/.bashrc
 
-RUN export PLANTUML_BIN=/pandoc-bin/plantuml.jar
+#RUN mkdir /pandoc-pandoc-bin
+#COPY /pandoc-bin /pandoc-bin
 
 RUN mkdir /data
-RUN mkdir /pandoc-bin
-COPY ./bin /pandoc-bin
-
 WORKDIR /data
 CMD ["bash"]

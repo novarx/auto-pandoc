@@ -5,16 +5,28 @@ Pandoc filter to process code blocks with class "plantuml" into
 plant-generated images.
 Needs `plantuml.jar` from http://plantuml.com/.
 """
-
+import json
 import os
 import sys
 import subprocess
+from time import sleep
 
 from pandocfilters import toJSONFilter, Para, Image
 from pandocfilters import get_filename4code, get_caption, get_extension
 
+
+def printToFile(*vals):
+    with open("log.txt", "a") as f:
+        for val in vals:
+            val = json.dumps(val)
+            f.write(val)
+            f.write("\n")
+        f.write("\n")
+
+
 PLANTUML_BIN = os.environ.get('PLANTUML_BIN', 'plantuml')
-print(PLANTUML_BIN)
+printToFile(PLANTUML_BIN.split())
+
 
 def rel_mkdir_symlink(src, dest):
     dest_dir = os.path.dirname(dest)
@@ -29,6 +41,8 @@ def rel_mkdir_symlink(src, dest):
 
 
 def plantuml(key, value, format_, _):
+    # printToFile("key", key, "value", value)
+
     if key == 'CodeBlock':
         [[ident, classes, keyvals], code] = value
 
@@ -48,7 +62,12 @@ def plantuml(key, value, format_, _):
                     txt = b"@startuml\n" + txt + b"\n@enduml\n"
                 with open(src, "wb") as f:
                     f.write(txt)
+                counter = 0
+                while counter < 5 and not os.path.isfile(src):
+                    sleep(0.2)
 
+                printToFile("src", src)
+                # printToFile(PLANTUML_BIN.split() + ["-t" + filetype, src])
                 subprocess.check_call(PLANTUML_BIN.split() +
                                       ["-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')
@@ -66,8 +85,6 @@ def plantuml(key, value, format_, _):
 
 
 def main():
-    print("plantuml")
-    print(plantuml)
     toJSONFilter(plantuml)
 
 
