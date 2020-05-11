@@ -5,23 +5,27 @@ stages:
   - test
   - deploy
 
+before_script:
+  - chmod 777 ./build-run.sh
+  - docker pull novarx/pandoc
 docker-test:
   stage: test
+  except:
+    - master
   artifacts:
     paths:
-      - /doc/convert-test-document.pdf
+    - /doc/convert-test-document.pdf
   script:
-    - docker pull novarx/pandoc
-    - chmod 777 ./build-run.sh
     - ./build-run.sh
 
 docker-deploy:
   stage: deploy
   only:
     - master
-  before_script:
-    - docker login -u novarx -p $DOCKERHUB_TOKEN
+  artifacts:
+    paths:
+      - /doc/convert-test-document.pdf
   script:
-    - docker pull novarx/pandoc
-    - docker build . --cache-from novarx/pandoc -t novarx/pandoc
+    - docker login -u novarx -p $DOCKERHUB_TOKEN
+    - ./build-run.sh
     - docker push novarx/pandoc
