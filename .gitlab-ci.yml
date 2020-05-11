@@ -2,10 +2,23 @@ image: docker:19.03.8
 services:
 - docker:19.03.8-dind
 stages:
-  - build
+  - test
+  - deploy
 
-docker-build:
-  stage: build
+docker-test:
+  stage: test
   script:
+    - docker pull novarx/pandoc
     - chmod 777 ./build-run.sh
     - ./build-run.sh
+
+docker-deploy:
+  stage: test
+  only:
+    - master
+  before_script:
+    - docker login -u novarx -p $DOCKERHUB_TOKEN
+  script:
+    - docker pull novarx/pandoc
+    - build . --cache-from novarx/pandoc -t novarx/pandoc
+    - docker push
