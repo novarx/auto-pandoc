@@ -8,7 +8,10 @@ docker build . --cache-from novarx/pandoc -t novarx/pandoc || exit 1
 docker run --rm \
  -v "$directory:/data" \
  novarx/pandoc \
-    "*.md" -t html5 -o convert-test-document.pdf \
+    "*.md" \
+    -t html5 \
+    -o convert-test-document.pdf \
+    --css "./style.css"
     -V fontsize=12pt \
     -V papersize=a4paper \
     --latex-engine=xelatex \

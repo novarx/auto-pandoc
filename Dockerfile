@@ -19,6 +19,7 @@ RUN apt-get install -y --no-install-recommends npm
 
 RUN apt-get install -y --no-install-recommends python-pip
 RUN apt-get install -y --no-install-recommends python-setuptools
+RUN apt-get install -y --no-install-recommends wkhtmltopdf
 
 # Filters
 RUN pip install pandocfilters
