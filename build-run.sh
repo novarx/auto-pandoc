@@ -11,9 +11,19 @@ docker run --rm \
     "*.md" \
     -t html5 \
     -o convert-test-document.pdf \
-    --css "./style.css"
+    --css "./style.css" \
     -V fontsize=12pt \
     -V papersize=a4paper \
-    --latex-engine=xelatex \
+    --pdf-engine=xelatex \
     --filter=pandoc-plantuml \
     --filter=pandoc-svg
+
+docker run --rm \
+ -v "$directory:/data" \
+ novarx/pandoc \
+    "02_part1.md" \
+    -t html \
+    -o convert-via-html-test-document.pdf \
+    --css="./style.css" \
+    --standalone \
+    --pdf-engine=wkhtmltopdf
