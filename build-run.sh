@@ -21,7 +21,7 @@ docker run --rm \
 docker run --rm \
  -v "$directory:/data" \
  novarx/pandoc \
-    "02_part1.md" \
+    "*.md" \
     -t html \
     -o convert-via-html-test-document.pdf \
     --css="./style.css" \

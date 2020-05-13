@@ -18,8 +18,7 @@ docker-test:
     - master
   artifacts:
     paths:
-      - ./doc/convert-test-document.pdf
-      - ./doc/convert-via-html-test-document.pdf
+      - ./doc
   script:
     - ./build-run.sh || exit 1
 
@@ -29,8 +28,7 @@ docker-deploy:
     - master
   artifacts:
     paths:
-      - ./doc/convert-test-document.pdf
-      - ./doc/convert-via-html-test-document.pdf
+      - ./doc
   script:
     - docker login -u novarx -p $DOCKERHUB_TOKEN
     - ./build-run.sh || exit 1
