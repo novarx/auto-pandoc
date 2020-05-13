@@ -3,8 +3,7 @@ pandoc_arg=''
 for var in "$@"; do
     pandoc_arg+="$var "
 done
-pandoc --version
-printf "pandoc_args\n"
+printf "run command:\n"
 echo "pandoc $pandoc_arg"
+printf "\n"
 eval "pandoc $pandoc_arg"
-bash
