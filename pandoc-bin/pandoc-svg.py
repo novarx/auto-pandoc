@@ -35,6 +35,7 @@ def svg_to_any(key, value, fmt, meta):
         option = fmt_to_option.get(fmt)
         if mimet == 'image/svg+xml' and option:
             base_name, _ = os.path.splitext(src)
+            # TODO: generate in subfolder
             eps_name = base_name + "." + option[1]
             try:
                 mtime = os.path.getmtime(eps_name)
