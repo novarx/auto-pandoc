@@ -1,6 +1,6 @@
-directory=$(pwd)/doc # unix
+directory=$(pwd)/test-doc # unix
 if [[ "$OSTYPE" == "msys"* ]]; then
-  directory=$(pwd -W)/doc # windows
+  directory=$(pwd -W)/test-doc # windows
 fi
 echo "current directory is: $directory"
 

@@ -8,9 +8,9 @@ stages:
 before_script:
   - pwd
   - ls -l
-  - ls -l ./doc
-  - ls -l /builds/novarx/pandoc/doc
-  - chmod 777 ./build-run.sh
+  - ls -l ./test-doc
+  - ls -l /builds/novarx/pandoc/test-doc
+  - chmod 777 ./build-test.sh
   - docker pull novarx/pandoc
 docker-test:
   stage: test
@@ -18,9 +18,9 @@ docker-test:
     - master
   artifacts:
     paths:
-      - ./doc
+      - ./test-doc
   script:
-    - ./build-run.sh || exit 1
+    - ./build-test.sh || exit 1
 
 docker-deploy:
   stage: deploy
@@ -28,10 +28,10 @@ docker-deploy:
     - master
   artifacts:
     paths:
-      - ./doc
+      - ./test-doc
   script:
     - docker login -u novarx -p $DOCKERHUB_TOKEN
-    - ./build-run.sh || exit 1
-    - ls -l ./doc
-    - ls -l /builds/novarx/pandoc/doc
+    - ./build-test.sh || exit 1
+    - ls -l ./test-doc
+    - ls -l /builds/novarx/pandoc/test-doc
     - docker push novarx/pandoc
