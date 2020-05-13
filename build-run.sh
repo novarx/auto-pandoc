@@ -9,9 +9,7 @@ docker run --rm \
  -v "$directory:/data" \
  novarx/pandoc \
     "*.md" \
-    -t html5 \
     -o convert-test-document.pdf \
-    --css "./style.css" \
     -V fontsize=12pt \
     -V papersize=a4paper \
     --pdf-engine=xelatex \
@@ -21,7 +19,7 @@ docker run --rm \
 docker run --rm \
  -v "$directory:/data" \
  novarx/pandoc \
-    "*.md" \
+    "02_part1.md" \
     -t html \
     -o convert-via-html-test-document.pdf \
     --css="./style.css" \
