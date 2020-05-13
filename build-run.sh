@@ -14,7 +14,7 @@ docker run --rm \
     -V papersize=a4paper \
     --pdf-engine=xelatex \
     --filter=pandoc-plantuml \
-    --filter=pandoc-svg
+    --filter=pandoc-svg || exit 1
 
 docker run --rm \
  -v "$directory:/data" \
@@ -24,4 +24,4 @@ docker run --rm \
     -o convert-via-html-test-document.pdf \
     --css="./style.css" \
     --standalone \
-    --pdf-engine=wkhtmltopdf
+    --pdf-engine=wkhtmltopdf || exit 1
