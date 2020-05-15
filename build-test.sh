@@ -3,6 +3,7 @@ if [[ "$OSTYPE" == "msys"* ]]; then
   directory=$(pwd -W)/test-doc # windows
 fi
 echo "current directory is: $directory"
+echo "volume mapping is: $directory:/data"
 
 docker build . --cache-from novarx/pandoc -t novarx/pandoc || exit 1
 docker run --rm \
