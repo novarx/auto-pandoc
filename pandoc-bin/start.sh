@@ -7,4 +7,3 @@ printf "run command:\n"
 echo "pandoc $pandoc_arg"
 printf "\n"
 eval "pandoc $pandoc_arg"
-#bash

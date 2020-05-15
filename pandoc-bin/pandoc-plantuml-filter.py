@@ -7,12 +7,12 @@ Needs `plantuml.jar` from http://plantuml.com/.
 """
 import json
 import os
-import sys
 import subprocess
+import sys
 from time import sleep
 
-from pandocfilters import toJSONFilter, Para, Image
 from pandocfilters import get_filename4code, get_caption, get_extension
+from pandocfilters import toJSONFilter, Para, Image
 
 
 def printToFile(*vals):

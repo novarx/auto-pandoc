@@ -1,37 +1,37 @@
 image: docker:19.03.8
 services:
-- docker:19.03.8-dind
+    - docker:19.03.8-dind
 stages:
-  - test
-  - deploy
+    - test
+    - deploy
 
 before_script:
-  - pwd
-  - ls -l
-  - ls -l ./test-doc
-  - ls -l /builds/novarx/pandoc/test-doc
-  - chmod 777 ./build-test.sh
-  - docker pull novarx/pandoc
-docker-test:
-  stage: test
-  except:
-    - master
-  artifacts:
-    paths:
-      - ./test-doc
-  script:
-    - ./build-test.sh || exit 1
-
-docker-deploy:
-  stage: deploy
-  only:
-    - master
-  artifacts:
-    paths:
-      - ./test-doc
-  script:
-    - docker login -u novarx -p $DOCKERHUB_TOKEN
-    - ./build-test.sh || exit 1
+    - pwd
+    - ls -l
     - ls -l ./test-doc
     - ls -l /builds/novarx/pandoc/test-doc
-    - docker push novarx/pandoc
+    - chmod 777 ./build-test.sh
+    - docker pull novarx/pandoc
+docker-test:
+    stage: test
+    except:
+        - master
+    artifacts:
+        paths:
+            - ./test-doc
+    script:
+        - ./build-test.sh || exit 1
+
+docker-deploy:
+    stage: deploy
+    only:
+        - master
+    artifacts:
+        paths:
+            - ./test-doc
+    script:
+        - docker login -u novarx -p $DOCKERHUB_TOKEN
+        - ./build-test.sh || exit 1
+        - ls -l ./test-doc
+        - ls -l /builds/novarx/pandoc/test-doc
+        - docker push novarx/pandoc
