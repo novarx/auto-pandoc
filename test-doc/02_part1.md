@@ -1,9 +1,9 @@
 # First Paragraph 
 ## A sub paragraph
-Bacon ipsum dolor amet cupim bresaola corned beef leberkas pork belly pastrami. Meatball ribeye turducken pork chop bresaola, t-bone sirloin turkey ham flank. Leberkas meatball ribeye pancetta beef ham spare ribs. Flank capicola brisket hamburger filet mignon beef doner frankfurter pork pig ham.
+Bacon ipsum dolor amet cupim bresaola corned beef leberkas pork belly pastrami. Meatball ribeye turducken pork chop bresaola, t-bone sirloin turkey ham flank. Leberkas meatball ribeye pancetta beef ham spare ribs. Flank capicola brisket hamburger filet mignon beef doner frankfurter pork pig ham. [@fig:img-label]
 
 
-![an png](img-png.png)
+![an png](img-png.png){#fig:img-label}
 
 
 ## Another sub paragraph

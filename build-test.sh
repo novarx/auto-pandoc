@@ -14,6 +14,7 @@ docker run --rm \
     -V fontsize=12pt \
     -V papersize=a4paper \
     --pdf-engine=xelatex \
+    --filter=pandoc-crossref \
     --filter=pandoc-plantuml \
     --filter=pandoc-svg || exit 1
 
