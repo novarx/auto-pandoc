@@ -27,7 +27,7 @@ RUN wget "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.
     tar -x -f pandoc-crossref-Linux-2.9.2.1.tar.xz pandoc-crossref && \
     mv pandoc-crossref /usr/local/bin/ && \
     rm pandoc-crossref*.tar.xz && \
-    apt-get install xz-utils
+    apt-get remove xz-utils
 
 # plantuml filter
 RUN pip install pandocfilters
