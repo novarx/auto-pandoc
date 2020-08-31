@@ -1,6 +1,5 @@
-#!/bin/bash
 # Get path OS agnostic
-cd "$(dirname "$0")" || exit 1
+cd "$(dirname "$0")" || (echo "wrongdir" && exit 1)
 directory=$(pwd) # unix
 if [[ "$OSTYPE" == "msys"* ]]; then
     directory=$(pwd -W) # windows
