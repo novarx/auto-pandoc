@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     npm \
     python-pip \
     python-setuptools \
-    default-jdk
+    default-jdk \
+    graphviz
 
 # pandoc-crossref
 RUN wget "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.2a/pandoc-crossref-Linux-2.9.2.1.tar.xz" && \
