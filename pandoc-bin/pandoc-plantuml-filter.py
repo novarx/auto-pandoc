@@ -49,7 +49,7 @@ def plantuml(key, value, format_, _):
             caption, typef, keyvals = get_caption(keyvals)
 
             filename = get_filename4code("plantuml", code)
-            filetype = get_extension(format_, "png", html="svg", latex="png")
+            filetype = get_extension(format_, "svg", html="svg", latex="png")
 
             src = filename + '.uml'
             dest = filename + '.' + filetype
