@@ -33,12 +33,14 @@ RUN wget "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.6.
 
 # plantuml filter
 RUN pip install pandocfilters
-RUN pip install pandoc-plantuml-filter
 
 # binaries
 RUN mkdir /pandoc-bin
 COPY /pandoc-bin /pandoc-bin
 RUN chmod -R +x /pandoc-bin
+
+# plantuml filter
+RUN cp /pandoc-bin/pandoc-plantuml-filter.py /usr/local/bin/pandoc-plantuml
 
 RUN wget "https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-linux-amd64.tar.gz" -O "pandoc.tar.gz"
 RUN wget "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb" -O "wkhtmltopdf.deb"

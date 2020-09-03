@@ -49,7 +49,7 @@ def plantuml(key, value, format_, _):
             caption, typef, keyvals = get_caption(keyvals)
 
             filename = get_filename4code("plantuml", code)
-            filetype = get_extension(format_, "svg", html="svg", latex="png")
+            filetype = get_extension(format_, "svg", html="svg", latex="svg")
 
             src = filename + '.uml'
             dest = filename + '.' + filetype
@@ -65,8 +65,8 @@ def plantuml(key, value, format_, _):
                 while counter < 5 and not os.path.isfile(src):
                     sleep(0.2)
 
-                printToFile("src", src)
-                printToFile(PLANTUML_BIN.split())
+                # printToFile("src", src)
+                # printToFile(PLANTUML_BIN.split())
                 subprocess.check_call(PLANTUML_BIN.split() +
                                       ["-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')
