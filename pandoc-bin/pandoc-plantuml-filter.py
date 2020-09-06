@@ -48,7 +48,7 @@ def plantuml(key, value, format_, _):
         if "plantuml" in classes:
             caption, typef, keyvals = get_caption(keyvals)
 
-            filename = get_filename4code("plantuml", code)
+            filename = get_filename4code("plantuml", code.encode("ascii", "ignore"))
             filetype = get_extension(format_, "svg", html="svg", latex="svg")
 
             src = filename + '.uml'
@@ -56,7 +56,7 @@ def plantuml(key, value, format_, _):
 
             # Generate image only once
             if not os.path.isfile(dest):
-                txt = code.encode(sys.getfilesystemencoding())
+                txt = code.encode("utf-8", "ignore")
                 if not txt.startswith(b"@start"):
                     txt = b"@startuml\n" + txt + b"\n@enduml\n"
                 with open(src, "wb") as f:
