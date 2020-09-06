@@ -13,10 +13,12 @@ Alice <-- Bob: another authentication Response
 ```
 
 ```plantuml
-left to right direction
-:User: --> (Anwendungsfall 1)
-:User: --> (Anwendungsfall 2)
-:User: --> (Anwendungsfall 3)
+package "Anwendungsfälle" {
+  left to right direction
+  :User: --> (Anwendungsfall 1)
+  :User: --> (Anwendungsfall 2)
+  :User: --> (Anwendungsfall 3)
+}
 ```
 
 ```plantuml
