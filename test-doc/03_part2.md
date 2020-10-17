@@ -15,7 +15,7 @@ Alice <-- Bob: another authentication Response
 ```plantuml
 package "Anwendungsfälle" {
   left to right direction
-  :User: --> (Anwendungsfall 1)
+  :User: --> (Anwendungsfall 1) : Send utf-8 chars, äöü
   :User: --> (Anwendungsfall 2)
   :User: --> (Anwendungsfall 3)
 }
