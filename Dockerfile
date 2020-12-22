@@ -58,7 +58,6 @@ RUN cp /pandoc-bin/pandoc-svg.py /usr/local/bin/pandoc-svg
 
 RUN cp /pandoc-bin/fonts/* /usr/share/fonts/truetype
 RUN fc-cache -f -v
-RUN fc-list
 
 # data dir
 RUN mkdir /data
