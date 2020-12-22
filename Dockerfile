@@ -31,7 +31,7 @@ RUN apt-get install -y --no-install-recommends \
     default-jdk
 
 # pandoc-crossref
-RUN wget "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.8.1/pandoc-crossref-Linux.tar.xz" && \
+RUN wget "https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.9.0/pandoc-crossref-Linux.tar.xz" && \
     apt-get install xz-utils && \
     tar -x -f pandoc-crossref-Linux.tar.xz pandoc-crossref && \
     mv pandoc-crossref /usr/local/bin/ && \
