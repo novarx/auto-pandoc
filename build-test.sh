@@ -27,3 +27,13 @@ docker run --rm \
     --css="./style.css" \
     --standalone \
     --pdf-engine=wkhtmltopdf || exit 1
+
+docker run --rm \
+    -v "$directory:/data" \
+    novarx/pandoc \
+    "02_part1.md" \
+    -t html \
+    -o convert-via-html-test-document-weasyprint.pdf \
+    --css="./style.css" \
+    --standalone \
+    --pdf-engine=weasyprint || exit 1
