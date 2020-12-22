@@ -48,15 +48,15 @@ def plantuml(key, value, format_, _):
         if "plantuml" in classes:
             caption, typef, keyvals = get_caption(keyvals)
 
-            filename = get_filename4code("plantuml", code)
-            filetype = get_extension(format_, "png", html="svg", latex="png")
+            filename = get_filename4code("plantuml", code.encode("ascii", "ignore"))
+            filetype = get_extension(format_, "svg", html="svg", latex="svg")
 
             src = filename + '.uml'
             dest = filename + '.' + filetype
 
             # Generate image only once
             if not os.path.isfile(dest):
-                txt = code.encode(sys.getfilesystemencoding())
+                txt = code.encode("utf-8", "ignore")
                 if not txt.startswith(b"@start"):
                     txt = b"@startuml\n" + txt + b"\n@enduml\n"
                 with open(src, "wb") as f:
@@ -65,10 +65,10 @@ def plantuml(key, value, format_, _):
                 while counter < 5 and not os.path.isfile(src):
                     sleep(0.2)
 
-                printToFile("src", src)
-                printToFile(PLANTUML_BIN.split())
+                # printToFile("src", src)
+                # printToFile(PLANTUML_BIN.split())
                 subprocess.check_call(PLANTUML_BIN.split() +
-                                      ["-t" + filetype, src])
+                                      ["-charset", "UTF-8", "-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')
 
             # Update symlink each run

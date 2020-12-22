@@ -20,6 +20,7 @@ docker-test:
         paths:
             - ./test-doc
     script:
+        - chmod +x ./build-test.sh
         - ./build-test.sh || exit 1
 
 docker-deploy:

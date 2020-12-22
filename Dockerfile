@@ -46,7 +46,10 @@ RUN pip install pandoc-plantuml-filter
 # binaries
 RUN mkdir /pandoc-bin
 COPY /pandoc-bin /pandoc-bin
-RUN chmod -R 744 /pandoc-bin
+RUN chmod -R +x /pandoc-bin
+
+# plantuml filter
+RUN cp /pandoc-bin/pandoc-plantuml-filter.py /usr/local/bin/pandoc-plantuml
 
 RUN wget "https://github.com/jgm/pandoc/releases/download/2.11.3.1/pandoc-2.11.3.1-linux-amd64.tar.gz" -O "pandoc.tar.gz"
 RUN wget "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb" -O "wkhtmltopdf.deb"

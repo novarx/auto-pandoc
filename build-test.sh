@@ -1,14 +1,19 @@
-directory=$(pwd)/test-doc # unix
+# Get path OS agnostic
+cd "$(dirname "$0")" || (echo "wrongdir" && exit 1)
+directory=$(pwd) # unix
 if [[ "$OSTYPE" == "msys"* ]]; then
-  directory=$(pwd -W)/test-doc # windows
+    directory=$(pwd -W) # windows
 fi
+
+directory="$directory/test-doc"
+
 echo "current directory is: $directory"
 echo "volume mapping is: $directory:/data"
 
 docker build . --cache-from novarx/pandoc -t novarx/pandoc || exit 1
 docker run --rm \
- -v "$directory:/data" \
- novarx/pandoc \
+    -v "$directory:/data" \
+    novarx/pandoc \
     "*.md" \
     -o convert-test-document.pdf \
     -V fontsize=12pt \
@@ -19,8 +24,8 @@ docker run --rm \
     --filter=pandoc-svg || exit 1
 
 docker run --rm \
- -v "$directory:/data" \
- novarx/pandoc \
+    -v "$directory:/data" \
+    novarx/pandoc \
     "02_part1.md" \
     -t html \
     -o convert-via-html-test-document.pdf \
