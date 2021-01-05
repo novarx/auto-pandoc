@@ -19,6 +19,8 @@ docker run --rm \
     -V fontsize=12pt \
     -V papersize=a4paper \
     --pdf-engine=xelatex \
+    --bibliography bib.bib \
+    --citeproc \
     --filter=pandoc-crossref \
     --filter=pandoc-plantuml \
     --filter=pandoc-svg || exit 1
