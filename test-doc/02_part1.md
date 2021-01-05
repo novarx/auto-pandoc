@@ -10,7 +10,7 @@ Bacon ipsum dolor amet cupim bresaola corned beef leberkas pork belly pastrami. 
 Ham hock tongue bresaola bacon. Kevin turkey landjaeger sausage corned beef tail short ribs alcatra doner meatloaf pork loin. Pork loin porchetta alcatra, turducken leberkas beef kielbasa chicken strip steak biltong picanha pancetta sirloin pork belly pastrami.
 
 ## Sub paragraph with list and code
-Verteilte Transparenz ist wenn sich ein System auf verschiedenen Maschinen befindet, dies für den User allerdings _Transparent_ also nicht ersichtlich ist.
+Verteilte Transparenz ist wenn sich ein System auf verschiedenen Maschinen befindet, dies für den User allerdings _Transparent_ also nicht ersichtlich ist. [@weitz2018]
 
 - Leberkas 
 - pork flank
